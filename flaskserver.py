@@ -73,8 +73,22 @@ def acknowledge_photo():
         metadata_json.update(drone_copy_info)
         f.seek(0)
         json.dump(metadata_json, f, indent=4)
-    
+
     return jsonify({'message': 'Acknowledged receipt of photo'}), 200
+
+
+@app.route('/set_time', methods=['POST'])
+def set_time():
+    data = request.json
+    if 'time' not in data:
+        return jsonify({"error": "time is required"}), 400
+    try:
+        # Set the system time
+        newTime = data.get("time")
+        os.system(f'sudo timedatectl set-time {newTime}')
+        return jsonify({"message": "Time successfully set"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
