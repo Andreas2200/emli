@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, json, request
+import base64
 import os
 
 app = Flask(__name__)
@@ -77,7 +78,7 @@ def acknowledge_photo():
     return jsonify({'message': 'Acknowledged receipt of photo'}), 200
 
 
-@app.route('/set_time', methods=['POST'])
+@app.route('/api/set_time', methods=['POST'])
 def set_time():
     data = request.json
     if 'time' not in data:
@@ -89,6 +90,36 @@ def set_time():
         return jsonify({"message": "Time successfully set"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/get_image/<directory>/<filename>', methods=['GET'])
+def get_image_with_metadata(directory, filename):
+
+    full_filename = directory+"/"+filename
+
+    # Create the full paths to the image file and metadata file
+    image_path = os.path.join(photos_directory, full_filename + ".jpg")
+    metadata_path = os.path.join(photos_directory, full_filename + ".json")
+    print(image_path)
+    print(metadata_path)
+
+    if not os.path.exists(image_path) or not os.path.exists(metadata_path):
+        return jsonify({"description":"Image or metadata not found"}), 404
+
+    # Read metadata from the JSON file
+    with open(metadata_path, 'r') as meta_file:
+        metadata = json.load(meta_file)
+
+    # Encode the image to base64
+    with open(image_path, 'rb') as img_file:
+        encoded_image = base64.b64encode(img_file.read()).decode('utf-8')
+
+    # Prepare the response data
+    response_data = {
+        'metadata': metadata,
+        'image': encoded_image
+    }
+
+    return jsonify(encoded_image)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
