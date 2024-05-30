@@ -57,7 +57,6 @@ class cam_class():
 			motion = True
 			(x, y, w, h) = cv2.boundingRect(contour)
 			cv2.rectangle(img=img2, pt1=(x, y), pt2=(x + w, y + h), color=(255, 255, 0), thickness=4)
-		if motion:
 			#cv2.imwrite("./motion_detect.png", img2)
 		return motion
 	

@@ -78,11 +78,15 @@ def offload_picture_from_camera():
         print("No connection to wildlife camera, shutting down")
         exit()
     images = list_images()
+    if len(images) < 1:
+        print("No images to download")
+        exit()
     for image in images:
         get_picture(image)
         if test_connection(max_tries=2) == False:
             print("No connection to wildlife camera, shutting down")
             exit()
+    print("All images downloaded")
 
 
 
