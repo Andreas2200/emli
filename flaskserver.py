@@ -77,10 +77,12 @@ def acknowledge_photo():
             "Seconds Epoch": seconds_epoch
         }
     }
-    with open(metadata_file, "r+") as f:
+    with open(metadata_file, "r") as f:
         metadata_json = json.load(f)
-        metadata_json.update(drone_copy_info)
-        f.seek(0)
+
+    metadata_json.update(drone_copy_info)
+
+    with open(metadata_file, "w") as f:
         json.dump(metadata_json, f, indent=4)
 
     return jsonify({'message': 'Acknowledged receipt of photo'}), 200

@@ -20,7 +20,7 @@ while true; do
     sudo -uemli mkdir -p "$IMAGE_DIR/$DATE2"
     current_image="$IMAGE_DIR/$DATE2/$FILENAME"
 
-    rpicam-still -t 0.01 -o "$current_image"
+    sudo -uemli rpicam-still -t 0.01 -o "$current_image"
 
     # Check if there is a previous image to compare against
     if [ -n "$prev_image" ]; then
@@ -38,21 +38,23 @@ while true; do
 	    ISO=$(echo "$METADATA" | jq -r '.[0]."ISO"')
 
 	    # Create JSON data
-	    JSON_DATA=$(cat <<EOF
-	    {
-  	      "File Name": "$FILENAME",
-  	      "Create Date": "$(date +"%Y-%m-%d %H:%M:%S.%3N%:z")",
-  	      "Create Seconds Epoch": $(date +"%s.%3N"),
-  	      "Trigger": "Motion",
-  	      "Subject Distance": "$SUBJECT_DISTANCE",
-  	      "Exposure Time": "$EXPOSURE_TIME",
-     	      "ISO": "$ISO"
-	    }
+	    	    JSON_DATA=$(cat <<EOF
+{
+    "File Name": "$FILENAME",
+    "Create Date": "$(date +"%Y-%m-%d %H:%M:%S.%3N%:z")",
+    "Create Seconds Epoch": $(date +"%s.%3N"),
+    "Trigger": "Motion",
+    "Subject Distance": "$SUBJECT_DISTANCE",
+    "Exposure Time": "$EXPOSURE_TIME",
+    "ISO": "$ISO"
+}
 EOF
 	    )
 
 	    # Write JSON data to file
-	    echo "$JSON_DATA" > "$IMAGE_DIR/$DATE2/$JSON_FILENAME"
+            TEMP_JSON_FILE=$(mktemp)
+            echo "$JSON_DATA" > "$TEMP_JSON_FILE"
+	    sudo -uemli mv "$TEMP_JSON_FILE" "$IMAGE_DIR/$DATE2/$JSON_FILENAME"
 
 	    TIME=$(date +"%d/%m/%Y %H:%M:%S")
 	    echo "$TIME Took photo with flag: Motion" >> /home/emli/pics/logs.txt
