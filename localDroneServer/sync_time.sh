@@ -2,8 +2,7 @@
 
 # Define the SSID of the wildlife camera's access point
 WILDLIFE_CAMERA_SSID="EMLI-TEAM-21"
-WILDLIFE_CAMERA_IP="10.0.0.10"
-SYNC_PORT=22  # Default SSH port
+WILDLIFE_CAMERA_IP="192.168.10.1"
 
 # Function to check if we are connected to the raspberry pi
 is_connected_to_ssid() {

@@ -5,7 +5,7 @@ import time
 import os
 import json
 
-wildlife_camera_ip = "http://10.0.0.10:5000"
+wildlife_camera_ip = "http://192.168.10.1:5000"
 drone_id = "WILDDRONE-001"
 photos = "./pics/"
 
@@ -70,7 +70,7 @@ def get_picture(picture_path):
         }
     }
 
-    req = requests.post(wildlife_camera_ip + "/api/acknowledge_photo", json=json_data)
+    requests.post(wildlife_camera_ip + "/api/acknowledge_photo", json=json_data)
 
 
 def offload_picture_from_camera():
@@ -81,12 +81,14 @@ def offload_picture_from_camera():
     if len(images) < 1:
         print("No images to download")
         exit()
+    time_start = int(time.time())
     for image in images:
         get_picture(image)
         if test_connection(max_tries=2) == False:
             print("No connection to wildlife camera, shutting down")
             exit()
     print("All images downloaded")
+    print(f'It took {int(time.time())-time_start} ms to get {len(images)} images')
 
 
 
