@@ -101,7 +101,7 @@ def set_time():
 
 @app.route('/api/heartbeat', methods=['GET'])
 def heartbeat():
-    return 200
+    return jsonify({}), 200
 
 @app.route('/api/get_image/<directory>/<filename>', methods=['GET'])
 def get_image_with_metadata(directory, filename):

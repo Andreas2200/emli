@@ -30,11 +30,11 @@ def test_connection(tries = 0, max_tries = 5):
             return True
         else:
             print("No connection to wildlife camera")
-            time.sleep(3) 
+            time.sleep(1) 
             return test_connection(tries+1, max_tries)
     except Exception as e:
         print("No connection to wildlife camera")
-        time.sleep(3)
+        time.sleep(1)
         return test_connection(tries+1, max_tries)
 
 def get_picture(picture_path):
@@ -80,6 +80,10 @@ def offload_picture_from_camera():
     images = list_images()
     for image in images:
         get_picture(image)
+        if test_connection(max_tries=2) == False:
+            print("No connection to wildlife camera, shutting down")
+            exit()
+
 
 
 if __name__ == '__main__':
