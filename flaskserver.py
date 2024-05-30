@@ -130,7 +130,7 @@ def get_image_with_metadata(directory, filename):
         'md5': md5_hash
     }
 
-    return jsonify(encoded_image)
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

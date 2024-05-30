@@ -19,7 +19,14 @@ def test_connection():
 
 def get_pictures(picture_path):
     print(f'Getting picture {picture_path}')
-
+    res = requests.get(wildlife_camera_ip + "/api/get_image/" + picture_path)
+    data = res.json()
+    metadata = data.get('metadata')
+    encoded_image = data.get('image')
+    md5 = data.get('md5')
+    print(metadata)
+    print(md5)
 
 images = test_connection()
 print(images)
+get_pictures(images[0])
