@@ -20,7 +20,7 @@ sync_time() {
     echo "Synchronizing time with wildlife camera: ${current_time}"
     
     # Use SSH to set the time on the wildlife camera
-    curl -X POST $WILDLIFE_CAMERA_IP:5000/api/set_time -H "Content-Type: application/json" -d "{\"time\": \"$(date +%H:%M:%S)\"}"
+    curl -X POST $WILDLIFE_CAMERA_IP:5000/api/set_time -H "Content-Type: application/json" -d "{\"time\": \"'$(date +'%Y-%m-%d %H:%M:%S')'\"}"
     
     if [ $? -eq 0 ]; then
         echo "Time synchronized successfully."

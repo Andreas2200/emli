@@ -99,6 +99,10 @@ def set_time():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/heartbeat', methods=['GET'])
+def heartbeat():
+    return 200
+
 @app.route('/api/get_image/<directory>/<filename>', methods=['GET'])
 def get_image_with_metadata(directory, filename):
 
@@ -107,8 +111,6 @@ def get_image_with_metadata(directory, filename):
     # Create the full paths to the image file and metadata file
     image_path = os.path.join(photos_directory, full_filename + ".jpg")
     metadata_path = os.path.join(photos_directory, full_filename + ".json")
-    print(image_path)
-    print(metadata_path)
 
     if not os.path.exists(image_path) or not os.path.exists(metadata_path):
         return jsonify({"description":"Image or metadata not found"}), 404
