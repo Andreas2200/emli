@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, json, request
 import base64
 import os
+import hashlib
 
 app = Flask(__name__)
 
@@ -11,6 +12,13 @@ photos_directory = "/home/emli/pics/"
 copied_photos_file = "/home/emli/copied_photos.txt"
 
 copied_photos = set()
+
+def calculate_md5(file_path):
+    hash_md5 = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
 
 # Load copied photo names from file if it exists
 def load_copied_photos():
@@ -113,10 +121,13 @@ def get_image_with_metadata(directory, filename):
     with open(image_path, 'rb') as img_file:
         encoded_image = base64.b64encode(img_file.read()).decode('utf-8')
 
+    md5_hash = calculate_md5(image_path)
+
     # Prepare the response data
     response_data = {
         'metadata': metadata,
-        'image': encoded_image
+        'image': encoded_image,
+        'md5': md5_hash
     }
 
     return jsonify(encoded_image)
