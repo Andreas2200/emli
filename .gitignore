@@ -10,4 +10,5 @@
 .wget-hsts
 .venv/
 pics/
+!cloud/pics/
 copied_photos.txt
