@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 21:05:24.003+02:00",
+  "Create Seconds Epoch": 1717095924.005,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717099461.6011004
+  },
+  "Exposure Time": "1/16",
+  "File Name": "210515_125.jpg",
+  "ISO": "616",
+  "Subject Distance": "1 m",
+  "Trigger": "Motion",
+  "Annotation": {
+    "Source": "null",
+    "Content": "null"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:33.603+02:00",
+  "Create Seconds Epoch": 1717099773.605,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.7054262
+  },
+  "Exposure Time": "1/11",
+  "File Name": "220931_704.jpg",
+  "ISO": "402",
+  "Subject Distance": "0.2335902826 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Head in air "
+  }
+}

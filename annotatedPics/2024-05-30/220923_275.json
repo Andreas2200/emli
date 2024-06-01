@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:25.189+02:00",
+  "Create Seconds Epoch": 1717099765.191,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.17446
+  },
+  "Exposure Time": "1/10",
+  "File Name": "220923_275.jpg",
+  "ISO": "402",
+  "Subject Distance": "1 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " White wall, ceiling light, hand in foreground. "
+  }
+}

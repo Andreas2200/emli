@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:00:09.212+02:00",
+  "Create Seconds Epoch": 1717099209.214,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717099461.6672468
+  },
+  "Exposure Time": "1/16",
+  "File Name": "220004_283.jpg",
+  "ISO": "616",
+  "Subject Distance": "1 m",
+  "Trigger": "Motion",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Woman taking photo "
+  }
+}

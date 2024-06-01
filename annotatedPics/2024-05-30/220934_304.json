@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:36.240+02:00",
+  "Create Seconds Epoch": 1717099776.242,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.1105423
+  },
+  "Exposure Time": "1/13",
+  "File Name": "220934_304.jpg",
+  "ISO": "403",
+  "Subject Distance": "0.1981767737 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Man pointing at ceiling. "
+  }
+}

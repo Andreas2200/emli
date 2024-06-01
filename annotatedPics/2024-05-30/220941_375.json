@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:43.241+02:00",
+  "Create Seconds Epoch": 1717099783.243,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.4652421
+  },
+  "Exposure Time": "1/10",
+  "File Name": "220941_375.jpg",
+  "ISO": "402",
+  "Subject Distance": "1 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Ceiling camera "
+  }
+}

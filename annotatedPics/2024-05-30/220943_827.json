@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:45.703+02:00",
+  "Create Seconds Epoch": 1717099785.705,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.522925
+  },
+  "Exposure Time": "1/10",
+  "File Name": "220943_827.jpg",
+  "ISO": "402",
+  "Subject Distance": "1 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Ceiling fan "
+  }
+}

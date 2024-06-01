@@ -1,0 +1,17 @@
+{
+  "Create Date": "2024-05-30 22:09:28.334+02:00",
+  "Create Seconds Epoch": 1717099768.336,
+  "Drone Copy": {
+    "Drone ID": "WILDDRONE-001",
+    "Seconds Epoch": 1717100344.2930572
+  },
+  "Exposure Time": "1/11",
+  "File Name": "220926_452.jpg",
+  "ISO": "402",
+  "Subject Distance": "1 m",
+  "Trigger": "Time",
+  "Annotation": {
+    "Source": "llava:7b",
+    "Content": " Ceiling light, selfie "
+  }
+}
