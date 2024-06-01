@@ -21,7 +21,7 @@ TOPIC="$USER/rain"
 
 cat "$DEVICE" | while IFS= read -r message; do
     if [[ "$message" == *'"rain_detect": 1'* ]]; then
-        echo "Received message with rain_detect=1: $message"
+        echo "Received message with rain_detect=1: $message" >> /home/emli/pics/logs.txt
 	mosquitto_pub -h $BROKER -u $USER -P $PWD -t $TOPIC -m "$message"
     fi
 done
